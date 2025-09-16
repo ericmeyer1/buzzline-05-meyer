@@ -241,6 +241,27 @@ def main():
     logger.info("All services are ready. Proceed with producer setup.")
     create_kafka_topic("test_topic", "default_group")
 
+def is_topic_available(topic_name: str) -> bool:
+    """
+    Check if a Kafka topic exists on the broker.
+
+    Args:
+        topic_name (str): Name of the topic to check.
+
+    Returns:
+        bool: True if topic exists, False otherwise.
+    """
+    kafka_broker = get_kafka_broker_address()
+    try:
+        admin_client = KafkaAdminClient(bootstrap_servers=kafka_broker)
+        exists = topic_name in set(admin_client.list_topics())
+        admin_client.close()
+        logger.info(f"Topic '{topic_name}' exists: {exists}")
+        return exists
+    except Exception as e:
+        logger.error(f"Error checking topic '{topic_name}': {e}")
+        return False
+
 
 #####################################
 # Conditional Execution
