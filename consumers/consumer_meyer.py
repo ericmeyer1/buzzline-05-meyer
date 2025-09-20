@@ -29,7 +29,7 @@ from typing import Optional, Dict, Any
 
 # Configuration
 DATA_FILE = pathlib.Path('data/project_live.json')
-DB_FILE = pathlib.Path('data/yourname_engagement_insights.sqlite')
+DB_FILE = pathlib.Path('data/meyer_engagement_insights.sqlite')
 
 def init_db(db_file: pathlib.Path) -> None:
     """Initialize the SQLite database with engagement insights table."""
