@@ -65,13 +65,13 @@ python producers/producer_case.py
 In a separate terminal:
 ```bash
 # Navigate to project directory
-cd buzzline-05-yourname
+cd buzzline-05-meyer
 
 # Activate virtual environment
 source venv/bin/activate
 
 # Run the custom engagement insights consumer
-python consumers/consumer_yourname.py
+python consumers/consumer_meyer.py
 ```
 
 ## Output Example
